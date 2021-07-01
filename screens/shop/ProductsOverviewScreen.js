@@ -29,22 +29,24 @@ export default function ProductsOverviewScreen(props) {
 					image={itemData.item.image}
 					title={itemData.item.title}
 					price={itemData.item.price}
-					onSelect={() =>
-						selectItemHandler(itemData.item.id, itemData.item.title)
-					}>
+					onSelect={selectItemHandler.bind(
+						this,
+						itemData.item.id,
+						itemData.item.title
+					)}>
 					<Button
 						title='Details'
 						color={Colors.primary}
-						onPress={() =>
-							selectItemHandler(itemData.item.id, itemData.item.title)
-						}
+						onPress={selectItemHandler.bind(
+							this,
+							itemData.item.id,
+							itemData.item.title
+						)}
 					/>
 					<Button
 						title='To Cart'
 						color={Colors.primary}
-						onPress={() => {
-							dispatch(cartActions.addToCart(itemData.item));
-						}}
+						onPress={() => dispatch(cartActions.addToCart(itemData.item))}
 					/>
 				</ProductItem>
 			)}

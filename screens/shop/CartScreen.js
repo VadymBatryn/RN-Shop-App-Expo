@@ -6,6 +6,7 @@ import * as ordersAction from '../../store/actions/orders';
 import * as cartAction from '../../store/actions/cart';
 import Colors from '../../constants/colors';
 import CartItem from '../../components/shop/CartItem';
+import Card from '../../components/UI/Card';
 
 export default function CartScreen(props) {
 	//Just a dispatch
@@ -33,7 +34,7 @@ export default function CartScreen(props) {
 
 	return (
 		<View style={styles.screen}>
-			<View style={styles.summary}>
+			<Card style={styles.summary}>
 				<Text style={styles.summaryText}>
 					Total :{' '}
 					<Text style={styles.amount}>
@@ -48,7 +49,7 @@ export default function CartScreen(props) {
 						dispatch(ordersAction.addOrder(cartItems, cardTotalAmount));
 					}}
 				/>
-			</View>
+			</Card>
 			{cartItems.length > 0 ? (
 				<FlatList
 					style={{
@@ -76,7 +77,7 @@ export default function CartScreen(props) {
 					</Text>
 					<Button
 						title='Back to Shop'
-						onPress={() => props.navigation.navigate('ProductsOverview')}
+						onPress={() => props.navigation.goBack()}
 					/>
 				</View>
 			)}
@@ -98,13 +99,6 @@ const styles = StyleSheet.create({
 		justifyContent: 'space-between',
 		marginBottom: 20,
 		padding: 10,
-		shadowColor: '#000',
-		shadowOpacity: 0.26,
-		shadowOffset: { width: 0, height: 2 },
-		shadowRadius: 8,
-		elevation: 5,
-		borderRadius: 10,
-		backgroundColor: '#fff',
 	},
 	summaryText: {
 		fontFamily: 'open-sans-bold',
