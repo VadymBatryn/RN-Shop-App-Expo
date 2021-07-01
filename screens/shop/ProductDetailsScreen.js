@@ -1,25 +1,18 @@
 import React from 'react';
-import {
-	StyleSheet,
-	Text,
-	View,
-	Image,
-	Button,
-	ScrollView,
-} from 'react-native';
+import {StyleSheet, Text, View, Image, Button, ScrollView } from 'react-native'; //prettier-ignore
 import { useDispatch, useSelector } from 'react-redux';
 
 import Colors from '../../constants/colors';
 import * as cartActions from '../../store/actions/cart';
 
 export default function ProductDetailsScreen(props) {
+	const dispatch = useDispatch();
+
 	const productId = props.navigation.getParam('productId');
 
 	const selectedProduct = useSelector((state) =>
 		state.products.avaliableProducts.find((product) => product.id === productId)
 	);
-
-	const dispatch = useDispatch();
 
 	return (
 		<ScrollView>
