@@ -84,7 +84,7 @@ const AdminNavigator = createStackNavigator(
 	}
 );
 
-const shopNavigator = createDrawerNavigator(
+const ShopNavigator = createDrawerNavigator(
 	{
 		Products: ProductsNavigator,
 		Orders: OrdersNavigator,
