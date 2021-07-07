@@ -94,7 +94,19 @@ const shopNavigator = createDrawerNavigator(
 		contentOptions: {
 			activeTintColor: Colors.primary,
 		},
+const AuthNavigator = createStackNavigator(
+	{
+		Auth: AuthScreen,
+	},
+	{
+		defaultNavigationOptions: defaultNavOptions,
 	}
 );
 
-export default createAppContainer(shopNavigator);
+const MainNavigator = createSwitchNavigator({
+	Startup: StartupScreen,
+	Auth: AuthNavigator,
+	Shop: ShopNavigator,
+});
+
+export default createAppContainer(MainNavigator);
