@@ -13,7 +13,7 @@ export default (state = initialState, action) => {
 				userId: action.userId,
 			};
 		case LOGOUT:
-			return state;
+			return { token: null, userId: null };
 		default:
 			return state;
 	}
